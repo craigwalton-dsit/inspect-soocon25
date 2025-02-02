@@ -12,8 +12,10 @@ What you'll have done by the end of this workshop:
 
 ## 0. Prerequisites
 
-I'm assuming you have a basic understanding of Python and the command line and that you
-have a laptop with Python 3.10 or higher installed.
+I'm assuming that you:
+* have a basic understanding of Python and the command line
+* have a laptop with Python 3.10 or higher installed
+* have internet access and are able to downlaod ~2 GiB of data
 
 If you don't, no worries, I hope you can still get some value from this workshop by
 getting a feel for the Inspect evaluation framework. Likewise, if you get stuck on one
@@ -23,10 +25,13 @@ your own time - the repo will stay public.
 I suggest using [VS Code](https://code.visualstudio.com/), but any text editor and
 terminal will do.
 
+If you don't have Python 3.10 or higher installed, you can download the latest stable
+version from [python.org](https://www.python.org/downloads/).
+
 ## 1. Clone this repo
 
 ```sh
-git clone TODO
+git clone https://github.com/craigwalton-dsit/inspect-soocon25.git
 ```
 
 ## 2. Setup a virtual environment
@@ -131,13 +136,23 @@ With a low temperature of 0.1 you'll likely see all 10 responses being very simi
 inspect eval task.py --model hf/TinyLlama/TinyLlama-1.1B-Chat-v1.0 --max-tokens 20 --epochs 10 --temperature 0.1
 ```
 
-## Optional extra:
+## Optional extra
+
 * Accept an answer of "hello, world" (note the comma) in addition to "hello world" by
   passing a list of strings as the `target` parameter.
 * Try providing a system message as a solver before the `generate()`. See the
   [docs](https://inspect.ai-safety-institute.org.uk/solvers.html#built-in-solvers)
-* Have a look at the other options you can pass to `inspect eval` by running
-  `inspect eval --help`
+* Have a look at the other options you can pass to `inspect eval` by running `inspect
+  eval --help`
+
+## Stuck or can't download the model?
+
+I've included some example logs in the `sample-logs` directory if you can't get the eval
+running. View them with
+
+```sh
+inspect view --log-dir sample-logs
+```
 
 ## Cleanup
 
