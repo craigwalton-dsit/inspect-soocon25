@@ -42,6 +42,8 @@ source .venv/bin/activate  # For Linux and macOS
 pip install -r requirements.txt
 ```
 
+If `python` isn't recognised, try `python3` instead.
+
 If you're on Windows, you'll need to replace the `source` command with
 
 ```sh
