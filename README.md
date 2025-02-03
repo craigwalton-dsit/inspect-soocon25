@@ -1,6 +1,7 @@
 # Inspect workshop
 
-A workshop which introduces the Inspect LLM evaluation framework at
+A workshop which introduces the [Inspect
+AI](https://inspect.ai-safety-institute.org.uk/) LLM evaluation framework at
 [SOOCon25](https://stateofopencon.com/).
 
 What you'll have done by the end of this workshop:
@@ -14,19 +15,18 @@ What you'll have done by the end of this workshop:
 
 I'm assuming that you:
 * have a basic understanding of Python and the command line
-* have a laptop with Python 3.10 or higher installed
+* have a laptop with Python 3.10 or higher installed ([download
+  here](https://www.python.org/downloads/))
 * have internet access and are able to download ~2 GiB of data
 
 If you don't, no worries, I hope you can still get some value from this workshop by
-getting a feel for the Inspect evaluation framework. Don't worry if you don't get every
-step completed - I added more than I thought we could cover in 45 minutes. You're also
-welcome to complete this in your own time - the repo will stay public.
+watching along and getting a feel for the Inspect evaluation framework. Don't worry if
+you don't get every step completed - I added more than I thought we could cover in 45
+minutes. You're also welcome to complete this in your own time - the repo will stay
+public.
 
 I suggest using [VS Code](https://code.visualstudio.com/), but any text editor and
 terminal will do.
-
-If you don't have Python 3.10 or higher installed, you can download the latest stable
-version from [python.org](https://www.python.org/downloads/).
 
 ## 1. Clone this repo
 
@@ -64,7 +64,7 @@ pip install -r requirements.txt
 ```
 
 Some of the dependencies are for running a small LLM model locally, which you wouldn't
-have to do if you had API access to a hosted model.
+have to do if you had API access to a hosted model. This might take a few minutes.
 
 > [!TIP]  
 > Optional: If you're using VS Code, consider installing the [Inspect AI
@@ -84,7 +84,7 @@ Usage: inspect [OPTIONS] COMMAND [ARGS]...
 
 ![Inspect CLI](images/inspect-cli.png)
 
-## 4. Run our first evaluation
+## 4. Run your first evaluation
 
 > [!WARNING]  
 > This will download a 1.1B parameter model, which is about 2 GiB in size. 
@@ -93,8 +93,10 @@ Usage: inspect [OPTIONS] COMMAND [ARGS]...
 inspect eval task.py --model hf/TinyLlama/TinyLlama-1.1B-Chat-v1.0 --max-tokens 20
 ```
 
-This could take a while as it will download the TinyLlama model and perform inference on
-your laptop. This is a relatively small and "cheap" model.
+This could take a while as it will download the
+[TinyLlama-1.1B-Chat-v1.0](https://huggingface.co/TinyLlama/TinyLlama-1.1B-Chat-v1.0)
+model from Hugging Face. You shouldn't need a Hugging Face account for this. This is a 
+relatively small and "cheap" model.
 
 ![Downloading model](images/downloading-model.png)
 
@@ -124,11 +126,14 @@ inspect view
 If it doesn't open automatically, copy the URL from the terminal and paste it into your
 web browser.
 
-Take a look at the score and the messages.
+Take a look at the score (right hand side) and the messages (try the "Messages" tab).
 
 ![Inspect View](images/inspect-view.png)
 
 ## 6. Adapt the scorer, re-run 10 parallel evaluations
+
+There's a good chance the model scored 0.0 on this eval. This is because the `exact()`
+scorer is very strict - it requires the model to output "hello world" _exactly_.
 
 Perhaps we don't mind if the model includes additional text in its response, so long as
 it has written "hello world" _somewhere_ in the output.
@@ -154,19 +159,19 @@ With a low temperature of 0.1 you'll likely see all 10 responses being very simi
 inspect eval task.py --model hf/TinyLlama/TinyLlama-1.1B-Chat-v1.0 --max-tokens 20 --epochs 10 --temperature 0.1
 ```
 
-## Optional extra
+## Optional extras
 
 * Accept an answer of "hello, world" (note the comma) in addition to "hello world" by
   passing a list of strings as the `target` parameter.
 * Try providing a system message as a solver before the `generate()`. See the
-  [docs](https://inspect.ai-safety-institute.org.uk/solvers.html#built-in-solvers)
+  [docs](https://inspect.ai-safety-institute.org.uk/solvers.html#built-in-solvers).
 * Have a look at the other options you can pass to `inspect eval` by running `inspect
-  eval --help`
+  eval --help`.
 
 ## Stuck or can't download the model?
 
 I've included some example logs in the `sample-logs` directory if you can't get the eval
-running. View them with
+running, or if you want to explore some logs of more complex evals. View them with
 
 ```sh
 inspect view --log-dir sample-logs
@@ -174,8 +179,8 @@ inspect view --log-dir sample-logs
 
 ## Cleanup
 
-You can delete the model which we downloaded to reclaim some space. It should be stored
-at one of
+You can delete the model which we downloaded to reclaim ~2 GiB of space. It should be
+stored at one of
 
 ```raw
 ~/.cache/huggingface/hub
