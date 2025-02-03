@@ -15,8 +15,12 @@ What you'll have done by the end of this workshop:
 
 I'm assuming that you:
 * have a basic understanding of Python and the command line
-* have a laptop with Python 3.10 or higher installed ([download
-  here](https://www.python.org/downloads/))
+* have a laptop with the following installed:
+    * Python 3.10 or higher ([download](https://www.python.org/downloads/))
+    * `git`
+      ([instructions](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git))
+    * An IDE or text editor of your choice (I recommend [VS
+      Code](https://code.visualstudio.com/))
 * have internet access and are able to download ~2 GiB of data
 
 If you don't, no worries, I hope you can still get some value from this workshop by
@@ -24,9 +28,6 @@ watching along and getting a feel for the Inspect evaluation framework. Don't wo
 you don't get every step completed - I added more than I thought we could cover in 45
 minutes. You're also welcome to complete this in your own time - the repo will stay
 public.
-
-I suggest using [VS Code](https://code.visualstudio.com/), but any text editor and
-terminal will do.
 
 ## 1. Clone this repo
 
@@ -95,7 +96,7 @@ inspect eval task.py --model hf/TinyLlama/TinyLlama-1.1B-Chat-v1.0 --max-tokens 
 
 This could take a while as it will download the
 [TinyLlama-1.1B-Chat-v1.0](https://huggingface.co/TinyLlama/TinyLlama-1.1B-Chat-v1.0)
-model from Hugging Face. You shouldn't need a Hugging Face account for this. This is a 
+model from Hugging Face. You shouldn't need a Hugging Face account for this. This is a
 relatively small and "cheap" model.
 
 ![Downloading model](images/downloading-model.png)
