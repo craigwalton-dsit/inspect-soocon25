@@ -1,6 +1,6 @@
 # Inspect workshop
 
-An workshop which introduces the Inspect LLM evaluation framework at
+A workshop which introduces the Inspect LLM evaluation framework at
 [SOOCon25](https://stateofopencon.com/).
 
 What you'll have done by the end of this workshop:
@@ -15,7 +15,7 @@ What you'll have done by the end of this workshop:
 I'm assuming that you:
 * have a basic understanding of Python and the command line
 * have a laptop with Python 3.10 or higher installed
-* have internet access and are able to downlaod ~2 GiB of data
+* have internet access and are able to download ~2 GiB of data
 
 If you don't, no worries, I hope you can still get some value from this workshop by
 getting a feel for the Inspect evaluation framework. Don't worry if you don't get every
