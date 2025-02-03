@@ -105,6 +105,10 @@ If you happen to have access to any model APIs (e.g. Anthropic, OpenAI), see the
 [instructions here](https://inspect.ai-safety-institute.org.uk/models.html) for using a
 hosted model.
 
+> [!INFO]  
+> Don't worry if you see a "UserWarning: Can't initialize NVML" warning. This just means
+> that the model won't be able to use GPU acceleration.
+
 The `--max-tokens 20` argument limits the number of tokens of the model's output to 20.
 This will speed things up in case this unintelligent model is very talkative.
 
