@@ -18,8 +18,9 @@ I'm assuming that you:
 * have internet access and are able to downlaod ~2 GiB of data
 
 If you don't, no worries, I hope you can still get some value from this workshop by
-getting a feel for the Inspect evaluation framework. You're also welcome to complete
-this in your own time - the repo will stay public.
+getting a feel for the Inspect evaluation framework. Don't worry if you don't get every
+step completed - I added more than I thought we could cover in 45 minutes. You're also
+welcome to complete this in your own time - the repo will stay public.
 
 I suggest using [VS Code](https://code.visualstudio.com/), but any text editor and
 terminal will do.
