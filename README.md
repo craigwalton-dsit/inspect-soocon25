@@ -42,7 +42,8 @@ cd inspect-soocon25
 python -m venv .venv
 ```
 
-> [!TIP] If `python` isn't recognised, try `python3` instead.
+> [!TIP]  
+> If `python` isn't recognised, try `python3` instead.
 
 Next, activate the virtual environment.
 
@@ -64,7 +65,8 @@ pip install -r requirements.txt
 Some of the dependencies are for running a small LLM model locally, which you wouldn't
 have to do if you had API access to a hosted model.
 
-> [!TIP] Optional: If you're using VS Code, consider installing the [Inspect AI
+> [!TIP]  
+> Optional: If you're using VS Code, consider installing the [Inspect AI
 > extension](https://marketplace.visualstudio.com/items?itemName=ukaisi.inspect-ai).
 
 ## 3. Verify that `inspect` is installed
