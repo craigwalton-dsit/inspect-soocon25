@@ -6,7 +6,7 @@ An workshop which introduces the Inspect LLM evaluation framework at
 What you'll have done by the end of this workshop:
 
 * Installed Inspect
-* Run an evaluation of a (small) language model locally
+* Run an evaluation of a (relatively small) language model locally
 * Viewed the results of the evaluation
 * Made changes to the evaluation and adjusted settings on the model
 
@@ -18,9 +18,8 @@ I'm assuming that you:
 * have internet access and are able to downlaod ~2 GiB of data
 
 If you don't, no worries, I hope you can still get some value from this workshop by
-getting a feel for the Inspect evaluation framework. Likewise, if you get stuck on one
-step, feel free to skip ahead or ask for help. You're also welcome to complete this in
-your own time - the repo will stay public.
+getting a feel for the Inspect evaluation framework. You're also welcome to complete
+this in your own time - the repo will stay public.
 
 I suggest using [VS Code](https://code.visualstudio.com/), but any text editor and
 terminal will do.
@@ -36,34 +35,37 @@ git clone https://github.com/craigwalton-dsit/inspect-soocon25.git
 
 ## 2. Setup a virtual environment
 
+First, create a virtual environment in the project directory.
+
 ```sh
+cd inspect-soocon25
 python -m venv .venv
-source .venv/bin/activate  # For Linux and macOS
+```
+
+> [!TIP] If `python` isn't recognised, try `python3` instead.
+
+Next, activate the virtual environment.
+
+```sh
+source .venv/bin/activate   # For Linux and macOS
+.venv\Scripts\activate.bat  # For Windows (cmd)
+.venv\Scripts\Activate.ps1  # For Windows (PowerShell)
+```
+
+The environment should be activated in your terminal session, which you can tell by the
+`(venv)` prefix in your terminal prompt.
+
+Next, install the dependencies.
+
+```sh
 pip install -r requirements.txt
 ```
-
-If `python` isn't recognised, try `python3` instead.
-
-If you're on Windows, you'll need to replace the `source` command with
-
-```sh
-.venv\Scripts\activate.bat
-```
-
-or
-
-```sh
-.venv\Scripts\Activate.ps1
-```
-
-This will create a virtual environment for the depenencies of this project in the
-`.venv` directory.
 
 Some of the dependencies are for running a small LLM model locally, which you wouldn't
 have to do if you had API access to a hosted model.
 
-Optional: If you're using VS Code, consider installing the Inspect extension
-https://marketplace.visualstudio.com/items?itemName=ukaisi.inspect-ai
+> [!TIP] Optional: If you're using VS Code, consider installing the [Inspect AI
+> extension](https://marketplace.visualstudio.com/items?itemName=ukaisi.inspect-ai).
 
 ## 3. Verify that `inspect` is installed
 
@@ -77,6 +79,8 @@ You should see output like
 Usage: inspect [OPTIONS] COMMAND [ARGS]...
 ```
 
+![Inspect CLI](images/inspect-cli.png)
+
 ## 4. Run our first evaluation
 
 > [!WARNING]  
@@ -89,6 +93,8 @@ inspect eval task.py --model hf/TinyLlama/TinyLlama-1.1B-Chat-v1.0 --max-tokens 
 This could take a while as it will download the TinyLlama model and perform inference on
 your laptop. This is a relatively small and "cheap" model.
 
+![Downloading model](images/downloading-model.png)
+
 If you happen to have access to any model APIs (e.g. Anthropic, OpenAI), see the
 [instructions here](https://inspect.ai-safety-institute.org.uk/models.html) for using a
 hosted model.
@@ -96,26 +102,33 @@ hosted model.
 The `--max-tokens 20` argument limits the number of tokens of the model's output to 20.
 This will speed things up in case this unintelligent model is very talkative.
 
+![Eval results](images/results-1.png)
+
 ## 5. View the results
 
-If you've got the Inspect [AI
+If you've got the [Inspect AI
 extension](https://marketplace.visualstudio.com/items?itemName=ukaisi.inspect-ai) for VS
-Code installed, the log viewer will open automatically inside the IDE.
+Code installed, the log viewer will open automatically inside the IDE when you select a
+log file from the `logs` directory.
 
-If not, open a new terminal (this will allow you to keep Inspect view running in the
-background) and run
+If not, open a new terminal (this will allow you to keep Inspect View running in the
+background), reactivate the virtual environment, and run
 
 ```sh
 inspect view
 ```
 
-This should launch a browser window with the results of the evaluation. Take a look at
-the score and the messages.
+If it doesn't open automatically, copy the URL from the terminal and paste it into your
+web browser.
+
+Take a look at the score and the messages.
+
+![Inspect View](images/inspect-view.png)
 
 ## 6. Adapt the scorer, re-run 10 parallel evaluations
 
 Perhaps we don't mind if the model includes additional text in its response, so long as
-it has written "hello world" somewhere in the output.
+it has written "hello world" _somewhere_ in the output.
 
 In `task.py`, let's replace the `exact()` scorer with a `includes()` scorer.
 
