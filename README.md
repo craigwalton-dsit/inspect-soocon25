@@ -105,6 +105,10 @@ If you happen to have access to any model APIs (e.g. Anthropic, OpenAI), see the
 [instructions here](https://inspect.ai-safety-institute.org.uk/models.html) for using a
 hosted model.
 
+> ![TIP]  
+> If you need to try an even smaller model, consider `hf/EleutherAI/pythia-70m-deduped`,
+> which is under 200 MiB in size and won't require as much RAM.
+
 > [!INFO]  
 > Don't worry if you see a "UserWarning: Can't initialize NVML" warning. This just means
 > that the model won't be able to use GPU acceleration.
