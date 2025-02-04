@@ -16,7 +16,7 @@ Continue to point of installing dependencies...
   help accelerate the work on AI safety evaluations being carried out across the globe.
 * It is used by many other safety research groups as well as some of the frontier model
   developers.
-  
+
 Continue to point of downloading the model...
 
 ## What kind of evaluations can you run with Inspect?
