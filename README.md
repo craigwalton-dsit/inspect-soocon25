@@ -177,6 +177,9 @@ inspect eval task.py --model hf/TinyLlama/TinyLlama-1.1B-Chat-v1.0 --max-tokens 
 * Have a look at the other options you can pass to `inspect eval` by running `inspect
   eval --help`.
 
+There is a completed version of `task.py` in the `completed` directory if you want to
+see one way of implementing these changes.
+
 ## Stuck or can't download the model?
 
 I've included some example logs in the `sample-logs` directory if you can't get the eval
